@@ -14,7 +14,26 @@
     <script type="module">
       import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
       createChat({
-        webhookUrl: 'https://n8n-pkgkkeedwecf.sate.sumopod.my.id/webhook/5b20c004-2d12-406b-889b-9d87a412389e/chat'
+        webhookUrl: 'https://n8n-pkgkkeedwecf.sate.sumopod.my.id/webhook/5b20c004-2d12-406b-889b-9d87a412389e/chat',
+        mode: 'window',
+        loadPreviousSession: true,
+        chatInputKey: 'chatInput',
+        chatSessionKey: 'sessionId',
+        metadata: {},
+        showWelcomeScreen: false,
+        defaultHeight: 600,
+        defaultWidth: 400,
+        showWindowCloseButton: true,
+        theme: {
+          header: {
+            backgroundColor: '#4f46e5',
+            color: '#ffffff'
+          },
+          chat: {
+            backgroundColor: '#ffffff',
+            color: '#374151'
+          }
+        }
       });
     </script>
   </body>
