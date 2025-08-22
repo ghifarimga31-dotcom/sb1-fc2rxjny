@@ -7,7 +7,6 @@ import Portfolio from './components/Portfolio';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ChatWidget from './components/ChatWidget';
 import ProjectDetail from './components/ProjectDetail';
 
 function App() {
@@ -53,7 +52,6 @@ function App() {
           projectId && <ProjectDetail projectId={projectId} />
         )}
         
-        <ChatWidget />
       </div>
     </ThemeProvider>
   );
