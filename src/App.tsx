@@ -52,9 +52,6 @@ function App() {
         ) : (
           projectId && <ProjectDetail projectId={projectId} />
         )}
-        
-        <ChatWidget />
-        
       </div>
     </ThemeProvider>
   );
