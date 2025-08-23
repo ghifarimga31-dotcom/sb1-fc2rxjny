@@ -52,7 +52,17 @@ const ChatWidget: React.FC = () => {
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Error response:', errorText);
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        
+        // Try to parse JSON error response for more specific error details
+        try {
+          const errorData = JSON.parse(errorText);
+          const specificMessage = errorData.message || errorData.error || errorText;
+          throw new Error(`Service error: ${specificMessage}`);
+        } catch (parseError) {
+          // If JSON parsing fails, use the raw error text or status
+          const errorMessage = errorText || response.statusText || 'Unknown error';
+          throw new Error(`HTTP ${response.status}: ${errorMessage}`);
+        }
       }
 
       const contentType = response.headers.get('content-type');
