@@ -36,22 +36,43 @@ const ChatWidget: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
+        mode: 'cors',
         body: JSON.stringify({
           message: message,
           timestamp: new Date().toISOString()
         })
       });
 
+      // Log response details for debugging
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+      
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
-      const data = await response.json();
-      return data.response || data.message || "Thank you for your message! I'll get back to you soon.";
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        const data = await response.json();
+        return data.response || data.message || data.output || "Thank you for your message! I'll get back to you soon.";
+      } else {
+        const textResponse = await response.text();
+        return textResponse || "Thank you for your message! I'll get back to you soon.";
+      }
     } catch (error) {
       console.error('Error sending message to n8n:', error);
-      return "I'm currently experiencing technical difficulties. Please try again later or contact me directly via email.";
+      
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        return "Unable to connect to the chat service. Please check your internet connection and try again.";
+      } else if (error instanceof Error && error.message.includes('HTTP')) {
+        return `Service temporarily unavailable (${error.message}). Please try again in a moment.`;
+      } else {
+        return "I'm currently experiencing technical difficulties. Please try again later or contact me directly via email.";
+      }
     }
   };
 
