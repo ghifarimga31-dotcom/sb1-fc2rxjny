@@ -250,22 +250,33 @@
       
       // Wait for DOM to be ready
       document.addEventListener('DOMContentLoaded', function() {
-        createChat({
-          webhookUrl: 'https://n8n-pkgkkeedwecf.sate.sumopod.my.id/webhook/5b20c004-2d12-406b-889b-9d87a412389e/chat',
-          chatWindowTitle: 'Chat with me!',
-          chatWindowSubtitle: 'I usually reply within a few minutes.',
-          chatInputPlaceholder: 'Type your message...',
-          initialMessages: [
-            {
-              text: "Hello! I'm Muhammad Ghifari Amirullah. How can I help you with your translation needs today?",
-              sender: 'bot'
-            }
-          ],
-          theme: {
-            primaryColor: '#2563EB',
-            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+        try {
+          const webhookUrl = 'https://n8n-pkgkkeedwecf.sate.sumopod.my.id/webhook/5b20c004-2d12-406b-889b-9d87a412389e/chat';
+          
+          // Validate webhook URL is a string
+          if (typeof webhookUrl !== 'string' || !webhookUrl.trim()) {
+            throw new Error('Invalid webhook URL');
           }
-        });
+          
+          createChat({
+            webhookUrl: webhookUrl.trim(),
+            chatWindowTitle: 'Chat with me!',
+            chatWindowSubtitle: 'I usually reply within a few minutes.',
+            chatInputPlaceholder: 'Type your message...',
+            initialMessages: [
+              {
+                text: "Hello! I'm Muhammad Ghifari Amirullah. How can I help you with your translation needs today?",
+                sender: 'bot'
+              }
+            ],
+            theme: {
+              primaryColor: '#2563EB',
+              fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+            }
+          });
+        } catch (error) {
+          console.error('Failed to initialize n8n chat:', error);
+        }
       });
     </script>
   </body>
