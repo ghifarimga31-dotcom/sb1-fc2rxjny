@@ -126,6 +126,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId }) => {
               src={project.image}
               alt={project.title}
               className="w-full h-96 object-cover rounded-2xl shadow-lg"
+              loading="lazy"
             />
           </div>
 

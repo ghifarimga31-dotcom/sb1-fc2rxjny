@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { ArrowDown, Star } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Hero: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [typewriterText, setTypewriterText] = useState('');
   const fullText = 'Bridging Languages, Connecting Worlds.';
+  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     if (isVisible) {
@@ -15,6 +17,8 @@ const Hero: React.FC = () => {
           i++;
         } else {
           clearInterval(timer);
+          // Hide cursor after typing is complete
+          setTimeout(() => setShowCursor(false), 1000);
         }
       }, 100);
       return () => clearInterval(timer);
@@ -37,22 +41,43 @@ const Hero: React.FC = () => {
           ) : (
             typewriterText
           )}
-          {!typewriterText.includes('.') && <span className="animate-pulse">|</span>}
+          {showCursor && !typewriterText.includes('.') && <span className="animate-pulse">|</span>}
         </h1>
         
         <p className="text-xl md:text-2xl text-text-muted mb-8 max-w-3xl mx-auto">
           Professional translation services for English and Indonesian, crafted for the modern world.
         </p>
         
-        <button
-          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-        >
-          Let's Work Together
-        </button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            Let's Work Together
+          </button>
+          
+          <button
+            onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+            className="border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105"
+          >
+            View My Work
+          </button>
+        </div>
+
+        <div className="flex items-center justify-center gap-2 text-text-muted mb-8">
+          <div className="flex items-center gap-1">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+            ))}
+          </div>
+          <span className="text-sm">Trusted by 50+ clients worldwide</span>
+        </div>
       </div>
     </section>
   );
 };
 
+        <div className="animate-bounce">
+          <ArrowDown className="h-6 w-6 text-text-muted mx-auto" />
+        </div>
 export default Hero;

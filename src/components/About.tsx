@@ -1,4 +1,5 @@
 import React from 'react';
+import { GraduationCap, Award, Globe, BookOpen } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const About: React.FC = () => {
@@ -44,6 +45,39 @@ const About: React.FC = () => {
                 My expertise lies in translating documents, subtitles, and transcripts between English and Indonesian. I am passionate about creating translations that are not only accurate but also culturally relevant and engaging. I am always open to new experiences and thrive in dynamic work environments.
               </p>
 
+              <div className="grid grid-cols-2 gap-4 pt-6">
+                <div className="flex items-center gap-3">
+                  <GraduationCap className="h-5 w-5 text-accent" />
+                  <div>
+                    <p className="font-semibold text-text">Education</p>
+                    <p className="text-sm text-text-muted">S.Hum. English Literature</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <Award className="h-5 w-5 text-accent" />
+                  <div>
+                    <p className="font-semibold text-text">Experience</p>
+                    <p className="text-sm text-text-muted">3+ Years Professional</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <Globe className="h-5 w-5 text-accent" />
+                  <div>
+                    <p className="font-semibold text-text">Languages</p>
+                    <p className="text-sm text-text-muted">English & Indonesian</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <BookOpen className="h-5 w-5 text-accent" />
+                  <div>
+                    <p className="font-semibold text-text">Specialization</p>
+                    <p className="text-sm text-text-muted">Literary & Technical</p>
+                  </div>
+                </div>
+              </div>
               <div className="flex flex-wrap gap-4 pt-4">
                 {['English Literature', 'Document Translation', 'Subtitle Translation', 'Cultural Adaptation'].map((skill, index) => (
                   <span

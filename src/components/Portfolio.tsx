@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExternalLink, Calendar, Globe2 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -12,28 +13,36 @@ const Portfolio: React.FC = () => {
       title: 'Subtitle Translation',
       description: 'Professional subtitle translation for a compelling short documentary film.',
       languagePair: 'English to Indonesian',
-      image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=500',
+      date: 'December 2024',
+      category: 'Media Translation'
     },
     {
       id: 2,
       title: 'Generative AI For Digital Content and Business',
       description: 'I bridge the gap between creative vision and technical execution by implementing cutting-edge Generative AI solutions.',
       languagePair: 'English to Indonesian',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=500',
+      date: 'November 2024',
+      category: 'Technical Translation'
     },
     {
       id: 3,
       title: 'Academic Paper Translation',
       description: 'Scholarly translation for a prestigious international scientific journal.',
       languagePair: 'Indonesian to English',
-      image: 'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: 'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=500',
+      date: 'October 2024',
+      category: 'Academic Translation'
     },
     {
       id: 4,
       title: 'Literary Translation',
       description: 'Artistic translation of a captivating collection of contemporary short stories.',
       languagePair: 'Indonesian to English',
-      image: 'https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: 'https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=500',
+      date: 'September 2024',
+      category: 'Literary Translation'
     }
   ];
 
@@ -73,19 +82,33 @@ const Portfolio: React.FC = () => {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div className="absolute top-4 left-4">
+                  <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-medium">
+                    {project.category}
+                  </span>
+                </div>
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ExternalLink className="h-5 w-5 text-white" />
+                </div>
               </div>
               
               <div className="p-6">
-                <div className="flex justify-between items-start mb-3">
+                <div className="flex items-center gap-2 text-xs text-text-muted mb-3">
+                  <Calendar className="h-4 w-4" />
+                  <span>{project.date}</span>
+                  <Globe2 className="h-4 w-4 ml-2" />
+                  <span>{project.languagePair}</span>
+                </div>
+                
+                <div className="mb-3">
                   <h3 className="text-xl font-bold text-text group-hover:text-accent transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <span className="text-xs bg-accent/10 text-accent px-3 py-1 rounded-full">
-                    {project.languagePair}
-                  </span>
                 </div>
+                
                 <p className="text-text-muted leading-relaxed">{project.description}</p>
               </div>
             </div>
