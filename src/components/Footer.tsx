@@ -14,24 +14,23 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-card border-t border-gray-200/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Portfolio
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-accent to-accent-hover bg-clip-text text-transparent mb-4">
+              Muhammad Ghifari Amirullah
             </h3>
-            <p className="text-gray-300 mb-6 max-w-md">
-              Creating exceptional digital experiences through innovative design and development. 
-              Let's build something amazing together.
+            <p className="text-text-muted mb-6 max-w-md">
+              Professional English-Indonesian translator bridging languages and connecting worlds through precise, culturally-aware translation services.
             </p>
             <div className="flex space-x-4">
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                className="p-2 bg-accent/10 rounded-lg hover:bg-accent/20 text-accent transition-colors"
                 aria-label="GitHub"
               >
                 <Github size={20} />
@@ -40,14 +39,14 @@ const Footer: React.FC = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                className="p-2 bg-accent/10 rounded-lg hover:bg-accent/20 text-accent transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
               <a
-                href="mailto:contact@example.com"
-                className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                href="mailto:ghifari.amirullah@example.com"
+                className="p-2 bg-accent/10 rounded-lg hover:bg-accent/20 text-accent transition-colors"
                 aria-label="Email"
               >
                 <Mail size={20} />
@@ -57,28 +56,20 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 text-text">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => scrollToSection('home')}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  onClick={() => scrollToSection('hero')}
+                  className="text-text-muted hover:text-accent transition-colors"
                 >
                   Home
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('about')}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  About
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-text-muted hover:text-accent transition-colors"
                 >
                   Services
                 </button>
@@ -86,15 +77,23 @@ const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('portfolio')}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-text-muted hover:text-accent transition-colors"
                 >
                   Portfolio
                 </button>
               </li>
               <li>
                 <button
+                  onClick={() => scrollToSection('about')}
+                  className="text-text-muted hover:text-accent transition-colors"
+                >
+                  About
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => scrollToSection('contact')}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-text-muted hover:text-accent transition-colors"
                 >
                   Contact
                 </button>
@@ -104,32 +103,32 @@ const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+            <h4 className="text-lg font-semibold mb-4 text-text">Contact Info</h4>
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
-                <Mail size={16} className="text-blue-400" />
-                <span className="text-gray-300">contact@example.com</span>
+                <Mail size={16} className="text-accent" />
+                <span className="text-text-muted">ghifari.amirullah@example.com</span>
               </li>
               <li className="flex items-center space-x-3">
-                <Phone size={16} className="text-blue-400" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <Phone size={16} className="text-accent" />
+                <span className="text-text-muted">+62 812-3456-7890</span>
               </li>
               <li className="flex items-center space-x-3">
-                <MapPin size={16} className="text-blue-400" />
-                <span className="text-gray-300">New York, NY</span>
+                <MapPin size={16} className="text-accent" />
+                <span className="text-text-muted">Bandung, Indonesia</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 Portfolio. All rights reserved.
+        <div className="border-t border-gray-200/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-text-muted text-sm">
+            © 2024 Muhammad Ghifari Amirullah. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}
-            className="mt-4 md:mt-0 p-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+            className="mt-4 md:mt-0 p-2 bg-accent hover:bg-accent-hover rounded-lg transition-colors text-white"
             aria-label="Scroll to top"
           >
             <ArrowUp size={20} />

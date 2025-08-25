@@ -72,12 +72,13 @@ const Hero: React.FC = () => {
           </div>
           <span className="text-sm">Trusted by 50+ clients worldwide</span>
         </div>
+
+        <div className="animate-bounce">
+          <ArrowDown className="h-6 w-6 text-text-muted mx-auto" />
+        </div>
       </div>
     </section>
   );
 };
 
-        <div className="animate-bounce">
-          <ArrowDown className="h-6 w-6 text-text-muted mx-auto" />
-        </div>
 export default Hero;
