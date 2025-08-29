@@ -37,6 +37,7 @@ const About: React.FC = () => {
             </div>
 
             <div className="flex-1 space-y-6">
+              <h3 className="text-2xl font-bold text-text mb-4">Muhammad Ghifari Amirullah</h3>
               <p className="text-lg text-text-muted leading-relaxed">
                 As a graduate of English Literature from Padjadjaran University, I hold a Bachelor of Humanities (S.Hum.) degree. My academic background has provided me with a strong foundation in both spoken and written English.
               </p>
